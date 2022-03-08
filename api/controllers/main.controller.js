@@ -1437,6 +1437,8 @@ function handleError(err, txnId) {
 			}
 			if (err.response.body.message) {
 				message = err.response.body.message;
+			} else if (!_.isEmpty(err.response.body)) {
+				message = err.response.body;
 			} else {
 				message = err.response.body;
 			}
