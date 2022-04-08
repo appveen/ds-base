@@ -124,7 +124,7 @@ e.baseUrlWF = get('wf') + '/workflow';
 e.baseUrlSEC = get('sec') + '/sec';
 e.baseUrlDM = get('dm') + '/dm';
 e.baseUrlPM = get('pm') + '/pm';
-e.baseUrlCOMMON = get('common') + '/api/common';
+e.baseUrlCOMMON = get('common') + '/api/a/common';
 e.baseUrlGW = get('gw');
 
 e.TOKEN_SECRET = process.env.TOKEN_SECRET || 'u?5k167v13w5fhjhuiweuyqi67621gqwdjavnbcvadjhgqyuqagsduyqtw87e187etqiasjdbabnvczmxcnkzn';
