@@ -4,38 +4,38 @@ const getParameters = [
 	{
 		name: 'page',
 		in: 'query',
-		type: 'integer',
-		description: 'Page number of the request'
+		description: 'Page number of the request',
+		schema: { type: 'integer' }
 	},
 	{
 		name: 'count',
 		in: 'query',
-		type: 'integer',
-		description: 'Number of records per page'
+		description: 'Number of records per page',
+		schema: { type: 'integer' }
 	},
 	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
+		description: 'The JWT token for req.validation',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'filter',
 		in: 'query',
-		type: 'string',
-		description: 'Filter records based on certain fields'
+		description: 'Filter records based on certain fields',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'select',
 		in: 'query',
-		type: 'string',
-		description: 'Comma seperated fields to be displayed'
+		description: 'Comma seperated fields to be displayed',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'sort',
 		in: 'query',
-		type: 'string',
-		description: 'sort parameter'
+		description: 'sort parameter',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -43,26 +43,26 @@ const bulkShowParameters = [
 	{
 		name: 'id',
 		in: 'query',
-		type: 'string',
-		description: 'comma separated ids'
+		description: 'comma separated ids',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'select',
 		in: 'query',
-		type: 'string',
-		description: 'Comma seperated fields to be displayed'
+		description: 'Comma seperated fields to be displayed',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'sort',
 		in: 'query',
-		type: 'string',
-		description: 'sort parameter'
+		description: 'sort parameter',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
+		description: 'The JWT token for req.validation',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -70,24 +70,8 @@ const bulkDeleteParameters = [
 	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
-	},
-	{
-		name: 'ids',
-		in: 'body',
-		description: 'Payload to reset a User',
-		schema: {
-			type: 'object',
-			properties: {
-				ids: {
-					type: 'array',
-					items: {
-						type: 'string'
-					}
-				}
-			}
-		}
+		description: 'The JWT token for req.validation',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -95,21 +79,21 @@ const showParameters = [
 	{
 		name: 'select',
 		in: 'query',
-		type: 'string',
-		description: 'Comma seperated fields to be displayed'
+		description: 'Comma seperated fields to be displayed',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'id',
 		in: 'path',
-		type: 'string',
 		required: true,
 		description: 'Id of the object to be updated',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
+		description: 'The JWT token for req.validation',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -117,16 +101,8 @@ const hookParameters = [
 	{
 		name: 'url',
 		in: 'query',
-		type: 'string',
-		description: 'Url to hit'
-	},
-	{
-		name: 'data',
-		in: 'body',
-		schema: {
-			type: 'object'
-		},
-		description: 'data'
+		description: 'Url to hit',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -134,16 +110,8 @@ const experienceHookParameters = [
 	{
 		name: 'name',
 		in: 'query',
-		type: 'string',
-		description: 'name of hook to hit'
-	},
-	{
-		name: 'data',
-		in: 'body',
-		schema: {
-			type: 'object'
-		},
-		description: 'data'
+		description: 'name of hook to hit',
+		schema: { type: 'string' }
 	}
 ];
 
@@ -151,60 +119,34 @@ const countParameters = [
 	{
 		name: 'filter',
 		in: 'query',
-		type: 'string',
-		description: 'Filter records based on certain fields'
+		description: 'Filter records based on certain fields',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
+		description: 'The JWT token for req.validation',
+		schema: { type: 'string' }
 	},
 	{
 		name: 'expand',
 		in: 'query',
-		type: 'boolean',
 		description: 'expand document based on relations',
-		default: false
+		schema: {
+			type: 'boolean',
+			default: false
+		},
 	}
 ];
 
 const exportParameters = [
 	{
-		name: 'filter',
-		in: 'body',
-		type: 'string',
-		description: 'Filter records based on certain fields'
-	},
-	{
-		name: 'select',
-		in: 'body',
-		type: 'string',
-		description: 'Comma seperated fields to be displayed'
-	},
-	{
-		name: 'sort',
-		in: 'body',
-		type: 'string',
-		description: 'sort parameter'
-	},
-	{
-		name: 'skip',
-		in: 'body',
-		type: 'integer',
-		description: 'Number of records to skip'
-	},
-	{
-		name: 'batchSize',
-		in: 'body',
-		type: 'integer',
-		description: 'Batch size for cursor'
-	},
-	{
 		name: 'authorization',
 		in: 'header',
-		type: 'string',
-		description: 'The JWT token for req.validation'
+		description: 'The JWT token for req.validation',
+		schema: {
+			type: 'string'
+		}
 	}
 ];
 
@@ -245,41 +187,39 @@ function generateYaml(config) {
 
 	var basePath = config.api.charAt(0) === '/' ? config.api : '/' + config.api;
 	var swagger = {
-		swagger: '2.0',
+		openapi: '3.0.0',
 		info: {
 			version: `${config.version}`,
 			title: config.name + ' API'
 		},
-		host: 'localhost:' + config.port,
-		basePath: '/' + config.app + basePath,
-		schemes: ['http'],
-		consumes: ['application/json', 'multipart/form-data'],
-		produces: ['application/json', 'text/plain'],
+		servers: [{ 'url': `http://localhost:${config.port}/${config.app}${basePath}` }],
 		paths: {},
-		definitions: {}
+		components: {}
 	};
 	var name = _.camelCase(config.name);
 
 	let expandOption = {
 		name: 'expand',
 		in: 'query',
-		type: 'boolean',
 		description: 'expand document based on relations',
-		default: false
+		schema: {
+			type: 'boolean',
+			default: false
+		}
 	};
 
 	let totalRecord = {
 		name: 'totalRecords',
 		in: 'query',
-		type: 'integer',
 		description: 'total records',
+		schema: { type: 'integer' }
 	};
 
 	let searchOption = {
 		name: 'search',
 		in: 'query',
-		type: 'string',
-		description: 'String to search across all field'
+		description: 'String to search across all field',
+		schema: { type: 'string' }
 	};
 
 	swagger.paths['/'] = {
@@ -303,34 +243,40 @@ function generateYaml(config) {
 		'post': {
 			description: `Create a new '${config.name}'`,
 			operationId: `${methodName.create}`,
-			parameters: [{
-				name: 'data',
-				in: 'body',
-				description: `Payload to create a '${config.name}'`
+			requestBody: {
+				description: `Payload to create a '${config.name}'`,
+				content: {
+					'application/json': {
+						schema: {
+							type: 'object'
+						}
+					}
+				}
+
 			},
-			{
+			parameters: [{
 				name: 'authorization',
 				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
 			},
 			{
 				name: 'expireAt',
 				in: 'query',
-				type: 'string',
-				description: 'ISO format date after which the document will get deleted'
+				description: 'ISO format date after which the document will get deleted',
+				schema: { type: 'string' }
 			},
 			{
 				name: 'expireAfter',
 				in: 'query',
-				type: 'string',
-				description: 'Time after which the document will get deleted.'
+				description: 'Time after which the document will get deleted.',
+				schema: { type: 'string' }
 			},
 			{
 				name: 'upsert',
 				in: 'query',
-				type: 'boolean',
-				description: 'upsert parameter'
+				description: 'upsert parameter',
+				schema: { type: 'boolean' }
 			}],
 			responses: {
 				'200': {
@@ -346,49 +292,152 @@ function generateYaml(config) {
 		}
 	};
 
-	swagger.paths['/utils/simulate'] = {
+	swagger.paths['/{id}'] = {
 		'x-swagger-router-controller': `${methodName.controller}`,
-		'post': {
-			description: `validate '${config.name}'`,
-			operationId: `${methodName.simulate}`,
+		'get': {
+			description: `Retrieve an existing '${config.name}'`,
+			operationId: `${methodName.show}`,
+			parameters: showParameters.concat([{
+				name: 'expand',
+				in: 'query',
+				description: 'expand document based on relations',
+				schema: {
+					type: 'boolean',
+					default: false
+				},
+			}]),
+			responses: {
+				'200': {
+					description: `${config.name} document`
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'404': {
+					description: 'No records to list with the given parameter set.'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		},
+		'put': {
+			description: `Update an existing '${config.name}'`,
+			operationId: `${methodName.update}`,
+			requestBody: {
+				description: `Payload to update a '${config.name}'`,
+				content: {
+					'application/json': {
+						schema: {
+							type: 'object'
+
+						}
+					}
+				}
+
+			},
 			parameters: [{
-				name: 'data',
-				in: 'body',
-				description: `Payload to validate '${config.name}'`
+				name: 'id',
+				in: 'path',
+				required: true,
+				description: `Id of the '${config.name}' to be updated`,
+				schema: { type: 'string' }
 			},
 			{
 				name: 'authorization',
 				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
 			},
 			{
-				name: 'generateId',
+				name: 'expireAt',
 				in: 'query',
-				type: 'boolean',
-				description: 'Generate Id for the document',
-				default: false
+				description: 'ISO format date after which the document will get deleted',
+				schema: { type: 'string' }
 			},
 			{
-				name: 'operation',
+				name: 'expireAfter',
 				in: 'query',
-				type: 'string',
-				description: 'request method',
-				default: false
+				description: 'Time after which the document will get deleted.',
+				schema: { type: 'string' }
+			}, {
+				name: 'upsert',
+				in: 'query',
+				description: 'upsert parameter',
+				schema: { type: 'boolean' }
+			}],
+			responses: {
+				'200': {
+					description: 'Update entry'
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'404': {
+					description: 'No records to list with the given parameter set.'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		},
+		'delete': {
+			description: `Delete an existing '${config.name}'`,
+			operationId: `${methodName.destroy}`,
+			parameters: [{
+				name: 'id',
+				in: 'path',
+				required: true,
+				description: `Id of the '${config.name}' to be deleted`,
+				schema: { type: 'string' }
 			},
 			{
-				name: 'docId',
-				in: 'query',
-				type: 'string',
-				description: 'request method',
-				default: false
+				name: 'authorization',
+				in: 'header',
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
+			}],
+			responses: {
+				'200': {
+					description: 'Empty object'
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'404': {
+					description: 'No records to list with the given parameter set.'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		}
+	};
+
+	swagger.paths['/utils/aggregate'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'post': {
+			description: 'runs aggregate query',
+			operationId: 'v1_aggregate',
+			requestBody: {
+				description: 'Payload to aggregate',
+				content: {
+					'application/json': {
+						schema: {
+							'type': 'array',
+							'items': {
+								'type': 'object'
+							}
+						}
+					}
+				}
+
 			},
-			{
-				name: 'select',
-				in: 'query',
-				type: 'string',
-				description: 'select in case of get',
-				default: false
+			parameters: [{
+				name: 'authorization',
+				in: 'header',
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
 			}],
 			responses: {
 				'200': {
@@ -396,6 +445,45 @@ function generateYaml(config) {
 				},
 				'400': {
 					description: 'Bad parameters'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		}
+	};
+
+	swagger.paths['/utils/bulkDelete'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'delete': {
+			description: `Deletes a list of '${name}'`,
+			operationId: `${methodName.bulkDelete}`,
+			// TODO - requestBody can't be used inside DELETE operation
+			// requestBody: {
+			// 	description: 'Payload to reset a User',
+			// 	content: {
+			// 		'application/json': {
+			// 			schema: {
+			// 				type: 'object',
+			// 				properties: {
+			// 					ids: {
+			// 						type: 'array',
+			// 						items: {
+			// 							type: 'string'
+			// 						}
+			// 					}
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// },
+			parameters: bulkDeleteParameters,
+			responses: {
+				'200': {
+					description: 'Empty Object'
+				},
+				'400': {
+					description: 'List document ids not deleted'
 				},
 				'500': {
 					description: 'Internal server error'
@@ -424,85 +512,6 @@ function generateYaml(config) {
 		}
 	};
 
-	swagger.paths['/utils/securedFields'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'get': {
-			description: `Retrieve a list of secured fields in '${config.name}'`,
-			operationId: `${methodName.securedFields}`,
-			responses: {
-				'200': {
-					description: 'List of the entites'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
-	swagger.paths['/utils/hook'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'post': {
-			description: 'triggers the hook with data',
-			operationId: `${methodName.hook}`,
-			parameters: hookParameters,
-			responses: {
-				'200': {
-					description: 'List of the entites'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
-	swagger.paths['/utils/experienceHook'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'post': {
-			description: 'triggers the hook with data',
-			operationId: `${methodName.experienceHook}`,
-			parameters: experienceHookParameters,
-			responses: {
-				'200': {
-					description: 'List of the entites'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
-	swagger.paths['/utils/bulkDelete'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'delete': {
-			description: `Deletes a list of '${name}'`,
-			operationId: `${methodName.bulkDelete}`,
-			parameters: bulkDeleteParameters,
-			responses: {
-				'200': {
-					description: 'Empty Object'
-				},
-				'400': {
-					description: 'List document ids not deleted'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
 	swagger.paths['/utils/count'] = {
 		'x-swagger-router-controller': `${methodName.controller}`,
 		'get': {
@@ -523,110 +532,79 @@ function generateYaml(config) {
 		}
 	};
 
-	swagger.paths['/{id}'] = {
+	swagger.paths['/utils/experienceHook'] = {
 		'x-swagger-router-controller': `${methodName.controller}`,
-		'get': {
-			description: `Retrieve an existing '${config.name}'`,
-			operationId: `${methodName.show}`,
-			parameters: showParameters.concat([{
-				name: 'expand',
-				in: 'query',
-				type: 'boolean',
-				description: 'expand document based on relations',
-				default: false
-			}]),
+		'post': {
+			description: 'triggers the hook with data',
+			operationId: `${methodName.experienceHook}`,
+			requestBody: {
+				description: 'data',
+				content: {
+					'application/json': {
+						schema: {
+							type: 'object'
+						}
+					}
+				}
+
+			},
+			parameters: experienceHookParameters,
 			responses: {
 				'200': {
-					description: `${config.name} document`
+					description: 'List of the entites'
 				},
 				'400': {
 					description: 'Bad parameters'
-				},
-				'404': {
-					description: 'No records to list with the given parameter set.'
 				},
 				'500': {
 					description: 'Internal server error'
 				}
 			}
-		},
-		'put': {
-			description: `Update an existing '${config.name}'`,
-			operationId: `${methodName.update}`,
-			parameters: [{
-				name: 'data',
-				in: 'body',
-				description: `Payload to update a '${config.name}'`
-			}, {
-				name: 'id',
-				in: 'path',
-				type: 'string',
-				required: true,
-				description: `Id of the '${config.name}' to be updated`,
-			},
-			{
-				name: 'authorization',
-				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
-			},
-			{
-				name: 'expireAt',
-				in: 'query',
-				type: 'string',
-				description: 'ISO format date after which the document will get deleted'
-			},
-			{
-				name: 'expireAfter',
-				in: 'query',
-				type: 'string',
-				description: 'Time after which the document will get deleted.'
-			}, {
-				name: 'upsert',
-				in: 'query',
-				type: 'boolean',
-				description: 'upsert parameter'
-			}],
-			responses: {
-				'200': {
-					description: 'Update entry'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'404': {
-					description: 'No records to list with the given parameter set.'
-				},
-				'500': {
-					description: 'Internal server error'
+		}
+	};
+
+	swagger.paths['/utils/export'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'post': {
+			description: `Retrieve a list of '${config.name}'`,
+			operationId: `${methodName.exportAll}`,
+			requestBody: {
+				content: {
+					'application/json': {
+						schema: {
+							properties: {
+								'filter': {
+									'type': 'string',
+									'description': 'Filter records based on certain fields'
+								},
+								'select': {
+									'type': 'string',
+									'description': 'Comma seperated fields to be displayed'
+								},
+								'sort': {
+									'type': 'string',
+									'description': 'sort parameter'
+								},
+								'skip': {
+									'type': 'integer',
+									'description': 'Number of records to skip'
+								},
+								'batchSize': {
+									'type': 'integer',
+									'description': 'Batch size for cursor'
+								},
+							}
+						}
+					}
 				}
-			}
-		},
-		'delete': {
-			description: `Delete an existing '${config.name}'`,
-			operationId: `${methodName.destroy}`,
-			parameters: [{
-				name: 'id',
-				in: 'path',
-				type: 'string',
-				required: true,
-				description: `Id of the '${config.name}' to be deleted`,
 			},
-			{
-				name: 'authorization',
-				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
-			}],
+			parameters: config.enableSearchIndex ? JSON.parse(JSON.stringify(exportParameters)).concat([expandOption, searchOption, totalRecord]) : JSON.parse(JSON.stringify(exportParameters)).concat([expandOption, totalRecord]),
 			responses: {
 				'200': {
-					description: 'Empty object'
+					description: 'List of the entites'
 				},
 				'400': {
 					description: 'Bad parameters'
-				},
-				'404': {
-					description: 'No records to list with the given parameter set.'
 				},
 				'500': {
 					description: 'Internal server error'
@@ -642,14 +620,14 @@ function generateYaml(config) {
 			parameters: [{
 				name: 'id',
 				in: 'path',
-				type: 'string',
 				required: true,
 				description: 'Id of file',
+				schema: { type: 'string' }
 			}, {
 				name: 'filename',
 				in: 'query',
-				type: 'string',
 				description: 'filename of file',
+				schema: { type: 'string' }
 			}],
 			operationId: `${methodName.exportFileileDownload}`,
 			responses: {
@@ -675,32 +653,12 @@ function generateYaml(config) {
 				name: 'fileId',
 				in: 'path',
 				required: true,
-				type: 'string',
-				description: 'fileId against which we db will be querried'
+				description: 'fileId against which we db will be querried',
+				schema: { type: 'string' }
 			}),
 			responses: {
 				'200': {
 					description: 'Count of the entites'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
-	swagger.paths['/utils/export'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'post': {
-			description: `Retrieve a list of '${config.name}'`,
-			operationId: `${methodName.exportAll}`,
-			parameters: config.enableSearchIndex ? JSON.parse(JSON.stringify(exportParameters)).concat([expandOption, searchOption, totalRecord]) : JSON.parse(JSON.stringify(exportParameters)).concat([expandOption, totalRecord]),
-			responses: {
-				'200': {
-					description: 'List of the entites'
 				},
 				'400': {
 					description: 'Bad parameters'
@@ -718,6 +676,37 @@ function generateYaml(config) {
 			description: 'Retrieve list of bulk actions\'',
 			operationId: `${methodName.exportAllDetail}`,
 			parameters: JSON.parse(JSON.stringify(getParameters)),
+			responses: {
+				'200': {
+					description: 'List of the entites'
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		}
+	};
+
+	swagger.paths['/utils/fileTransfers/{id}'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'delete': {
+			description: 'Deletes a file with file id',
+			operationId: `${methodName.exportAllDetailDelete}`,
+			parameters: [{
+				name: 'id',
+				in: 'path',
+				required: true,
+				description: 'Id of file',
+				schema: { type: 'string' }
+			}, {
+				name: 'authorization',
+				in: 'header',
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
+			}],
 			responses: {
 				'200': {
 					description: 'List of the entites'
@@ -752,64 +741,37 @@ function generateYaml(config) {
 		}
 	};
 
-	swagger.paths['/utils/fileTransfers/{id}'] = {
-		'x-swagger-router-controller': `${methodName.controller}`,
-		'delete': {
-			description: 'Deletes a file with file id',
-			operationId: `${methodName.exportAllDetailDelete}`,
-			parameters: [{
-				name: 'id',
-				in: 'path',
-				type: 'string',
-				required: true,
-				description: 'Id of file',
-			}, {
-				name: 'authorization',
-				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
-			}],
-			responses: {
-				'200': {
-					description: 'List of the entites'
-				},
-				'400': {
-					description: 'Bad parameters'
-				},
-				'500': {
-					description: 'Internal server error'
-				}
-			}
-		}
-	};
-
 	swagger.paths['/utils/fileTransfers/{fileId}/readStatus'] = {
 		'x-swagger-router-controller': `${methodName.controller}`,
 		'put': {
 			description: 'Updates File Read Status',
 			operationId: 'exportUpdateReadStatus',
-			parameters: [{
-				name: 'fileId',
-				in: 'path',
-				type: 'string',
-				required: true,
-				description: 'Id of file',
-			}, {
-				name: 'authorization',
-				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
-			}, {
-				name: 'data',
-				in: 'body',
+			requestBody: {
 				description: 'Payload with read status',
-				schema: {
-					properties: {
-						'isRead': {
-							'type': 'boolean',
+				content: {
+					'application/json': {
+						schema: {
+							properties: {
+								'isRead': {
+									'type': 'boolean',
+								}
+							}
 						}
 					}
 				}
+
+			},
+			parameters: [{
+				name: 'fileId',
+				in: 'path',
+				required: true,
+				description: 'Id of file',
+				schema: { type: 'string' }
+			}, {
+				name: 'authorization',
+				in: 'header',
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
 			}],
 			responses: {
 				'200': {
@@ -825,25 +787,112 @@ function generateYaml(config) {
 		}
 	};
 
-	swagger.paths['/utils/aggregate'] = {
+	swagger.paths['/utils/hook'] = {
 		'x-swagger-router-controller': `${methodName.controller}`,
 		'post': {
-			description: 'runs aggregate query',
-			operationId: 'v1_aggregate',
+			description: 'triggers the hook with data',
+			operationId: `${methodName.hook}`,
+			requestBody: {
+				description: 'data',
+				content: {
+					'application/json': {
+						schema: {
+							type: 'object'
+						}
+					}
+				}
+
+			},
+			parameters: hookParameters,
+			responses: {
+				'200': {
+					description: 'List of the entites'
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		}
+	};
+
+	swagger.paths['/utils/securedFields'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'get': {
+			description: `Retrieve a list of secured fields in '${config.name}'`,
+			operationId: `${methodName.securedFields}`,
+			responses: {
+				'200': {
+					description: 'List of the entites'
+				},
+				'400': {
+					description: 'Bad parameters'
+				},
+				'500': {
+					description: 'Internal server error'
+				}
+			}
+		}
+	};
+
+	swagger.paths['/utils/simulate'] = {
+		'x-swagger-router-controller': `${methodName.controller}`,
+		'post': {
+			description: `validate '${config.name}'`,
+			operationId: `${methodName.simulate}`,
+			requestBody: {
+				description: `Payload to validate '${config.name}'`,
+				content: {
+					'application/json': {
+						schema: {
+							type: 'object'
+						}
+					}
+				}
+
+			},
 			parameters: [{
 				name: 'authorization',
 				in: 'header',
-				type: 'string',
-				description: 'The JWT token for req.validation'
-			}, {
-				name: 'data',
-				in: 'body',
-				description: 'Payload to aggregate',
+				description: 'The JWT token for req.validation',
+				schema: { type: 'string' }
+			},
+			{
+				name: 'generateId',
+				in: 'query',
+				description: 'Generate Id for the document',
 				schema: {
-					'type': 'array',
-					'items': {
-						'type': 'object'
-					}
+					type: 'boolean',
+					default: false
+				},
+			},
+			{
+				name: 'operation',
+				in: 'query',
+				description: 'request method',
+				schema: {
+					type: 'string',
+					default: false
+				},
+			},
+			{
+				name: 'docId',
+				in: 'query',
+				description: 'request method',
+				schema: {
+					type: 'string',
+					default: false
+				},
+			},
+			{
+				name: 'select',
+				in: 'query',
+				description: 'select in case of get',
+				schema: {
+					type: 'string',
+					default: false
 				}
 			}],
 			responses: {
